@@ -18,17 +18,21 @@ endereco.codigoPostal = `22220-000`
 cliente.endereco = endereco
 
 let telefone = new Telefone("21", "99999-9999")
-cliente.telefone = telefone
+cliente.telefones.push(telefone)
 
 let dependente = new Cliente()
 dependente.nome = `Isabel Cristina Leopoldina Augusta Micaela`
 dependente.nomeSocial = `Princesa Isabel`
 dependente.dataCadastro = new Date(1921, 10, 14)
 dependente.dataNascimento = new Date(1846, 6, 29)
-dependente.endereco = (cliente.endereco.clonar() as Endereco)
-dependente.telefone = cliente.telefone.clonar()
+dependente.endereco = cliente.endereco.clonar() as Endereco
+dependente.telefones = cliente.telefones.map(tel => 
+    tel.clonar() as Telefone
+)
+
 dependente.titular = cliente
 cliente.dependentes.push(dependente)
 
-console.log(cliente);
-console.log(dependente);
+
+console.log(cliente)
+console.log(dependente)

@@ -1,4 +1,5 @@
 import promptSync from "prompt-sync";
+
 export default class Entrada {
     public receberNumero(mensagem: string): number {
         let prompt = promptSync();
@@ -6,11 +7,13 @@ export default class Entrada {
         let numero = new Number(valor)
         return numero.valueOf()
     }
+
     public receberTexto(mensagem: string): string {
         let prompt = promptSync();
         let texto = prompt(`${mensagem}: `)
         return texto
     }
+
     public receberData(mensagem: string): Date {
         let prompt = promptSync();
         let texto = prompt(`${mensagem}, no padrão dd/MM/yyyy: `)
@@ -20,5 +23,9 @@ export default class Entrada {
         let dia = new Number(partes[0])
         let data = new Date(ano.valueOf(), mes.valueOf() - 1, dia.valueOf())
         return data
+    }
+    
+    private importante(): string {
+        return "Rubim Maior Lenda da Fatec"
     }
 }
